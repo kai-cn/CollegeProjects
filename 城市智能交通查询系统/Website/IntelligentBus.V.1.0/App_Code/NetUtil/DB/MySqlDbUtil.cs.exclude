@@ -1,0 +1,89 @@
+﻿using System;
+using System.Collections.Generic;
+
+using System.Web;
+
+using System.Data;
+using Microsoft.Data.Odbc;
+using System.Configuration;
+
+/// <summary>
+///MySqlDbUtil 的摘要说明
+/// </summary>
+/// 
+
+namespace NetUtil.DB
+{
+     class MySqlDbUtil:DbUtil
+    {
+       
+        public MySqlDbUtil(string connectionString)
+        {
+            //
+            //TODO: 在此处添加构造函数逻辑
+
+            //
+            this.connectString = connectionString;
+            
+        }
+
+        public override void SetConnectionString(string connectionStr)
+        {
+            this.connectString = connectionStr;
+        }
+
+        protected override object GetConnection()
+        {
+            return new OdbcConnection(connectString);
+        }
+
+
+        public override void ExecNoQuery(string sqlStr)
+        {
+            OdbcConnection con = GetConnection() as OdbcConnection;
+            OdbcCommand cmd = null;
+
+            try
+            {
+                con.Open();
+                cmd = new OdbcCommand(sqlStr, con);
+                cmd.CommandTimeout = 0;
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                Log.LogManager.WriteLog(Log.LogManager.LogFile.Error, "ExecNoQuery: "+ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public override DataSet Select(string sqlStr)
+        {
+            DataSet ds = new DataSet();
+            OdbcConnection con=GetConnection() as OdbcConnection;
+            OdbcDataAdapter da = null;
+
+            try
+            {
+                con.Open();
+                da = new OdbcDataAdapter(sqlStr, con);
+                da.SelectCommand.CommandTimeout = 0;
+                da.Fill(ds); 
+            }
+            catch(Exception ex)
+            {
+                Log.LogManager.WriteLog(Log.LogManager.LogFile.Error, "Select: "+ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return ds;
+        }
+
+        
+    }
+}

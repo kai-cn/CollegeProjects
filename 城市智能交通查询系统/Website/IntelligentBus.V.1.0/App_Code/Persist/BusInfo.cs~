@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+
+using System.Web;
+
+using System.Data;
+
+namespace IntelligentBus.Persist
+{
+ 
+    public class BusInfo
+    {
+        private NetUtil.DB.DbUtil dbUtil = NetUtil.DB.DbFactory.CreateDbUtil();
+        private string selectSqlStr;
+
+        public BusInfo()
+        {
+            selectSqlStr = "select * from BusInfo";
+        }
+        public DataSet Select(int BusInfoID)
+        {
+            string strSql = string.Format("{0} where BusInfoID={1}", selectSqlStr, BusInfoID);
+
+            return dbUtil.Select(strSql);
+        }
+
+    }
+}

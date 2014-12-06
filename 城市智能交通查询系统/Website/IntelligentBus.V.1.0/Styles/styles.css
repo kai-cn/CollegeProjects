@@ -1,0 +1,36 @@
+﻿.Main
+{
+    
+}
+
+.title
+{
+   height:200px; 
+    background-color:Red;  
+}
+
+.cell_right
+{
+   width:300px; 
+   height:300px; 
+   margin-right:100px;
+   margin-top:100px;
+   background-color:Red;  
+   float:right;
+}
+
+.cell_left
+{
+   width:300px; 
+   height:300px; 
+   margin-left:100px;
+   margin-top:100px;
+   background-color:Red;  
+   float:left; 
+}
+
+
+.main_div
+{
+    text-align:center;
+    }

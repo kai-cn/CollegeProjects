@@ -1,0 +1,83 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+//using System.Runtime.Serialization.Json;
+using System.IO;
+using System.Text;
+using System.Data;
+/// <summary>
+///JsonHelper 的摘要说明
+/// </summary>
+/// 
+
+namespace Util.Json
+{
+
+    public class JsonHelper
+    {
+        public JsonHelper()
+        {
+            //
+            //TODO: 在此处添加构造函数逻辑
+            //
+        }
+
+        public static string GetJson<T>(T obj)
+        {
+            DataContractJsonSerializer json = new DataContractJsonSerializer(obj.GetType());
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                json.WriteObject(ms, obj);
+                string szJson = Encoding.UTF8.GetString(ms.ToArray());
+                return szJson;
+
+            }
+        }
+
+        public static string ToJson(DataTable dt)
+        {
+            StringBuilder jsonString = new StringBuilder();
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                //jsonString.Append("{");
+                //jsonString.Append("\"tableInfo\":[");
+                jsonString.Append("[");
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    jsonString.Append("{");
+                    for (int j = 0; j < dt.Columns.Count; j++)
+                    {
+                        jsonString.Append("\"" + dt.Columns[j].ToString() + "\":" +"\""+ dt.Rows[i][j].ToString() + "\",");
+                    }
+                    jsonString.Replace(",", "", jsonString.Length - 1, 1);
+                    jsonString.Append("},");
+                }
+                jsonString.Replace(",", "", jsonString.Length - 1, 1);
+                //jsonString.Append("]}");
+                jsonString.Append("]");
+                
+            }
+            return jsonString.ToString();
+
+        }
+
+        public static string ToJson(DataSet ds)
+        {
+            StringBuilder jsonString = new StringBuilder();
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                //jsonString.Append("{");
+
+                foreach (DataTable dt in ds.Tables)
+                {
+                    jsonString.Append(ToJson(dt) + ",");
+                }
+                jsonString.Replace(",", "", jsonString.Length - 1, 1);
+            }
+            return jsonString.ToString();
+        }
+    }
+}

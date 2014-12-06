@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="admin_MasterPage" %>
+
+<%@ Register src="UC/Top.ascx" tagname="Top" tagprefix="uc1" %>
+
+<%@ Register src="UC/Left.ascx" tagname="Left" tagprefix="uc2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    </title>
+</head>
+<body style="background-color:#7e807f">
+<center>
+    <form id="form1" runat="server">
+    <div >
+    <table >
+        <tr>
+            <td colspan="2">
+                <uc1:Top ID="Top1" runat="server" />
+            </td>
+        </tr>
+        <tr >
+            <table width="1000px" style="background-color:White; height:480px">
+            <tr>
+            <td style="width:250px" valign="top" align="left">
+                <uc2:Left ID="Left1" runat="server" />
+            </td>
+            <td style="width:750px" valign="top" align="left">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            </td>
+            </tr>
+            </table>
+        </tr>
+    </table>
+    </div>
+    </form>
+</center>
+</body>
+</html>
