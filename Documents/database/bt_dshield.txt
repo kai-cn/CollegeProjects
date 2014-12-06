@@ -1,0 +1,22 @@
+# List distributed by iblocklist.com
+
+[DShield block] Unknown:183.101.220.0-183.101.220.255
+[DShield block] CMNET:211.140.164.0-211.140.164.255
+[DShield block] Unknown:176.9.27.0-176.9.27.255
+[DShield block] Unknown:93.70.1.0-93.70.1.255
+[DShield block] Universidade Federal de Minas Gerais (NET-UFMG-ANMG):150.164.91.0-150.164.91.255
+[DShield block] Unknown:218.106.254.0-218.106.254.255
+[DShield block] Unknown:86.51.124.0-86.51.124.255
+[DShield block] CHINANET Anhui province network:61.191.61.0-61.191.61.255
+[DShield block] Unknown:222.184.30.0-222.184.30.255
+[DShield block] Unknown:208.72.122.0-208.72.122.255
+[DShield block] CHINANET Anhui province network:61.191.41.0-61.191.41.255
+[DShield block] CHINANET Anhui province network:220.178.16.0-220.178.16.255
+[DShield block] CHINANET Fujian province network:220.162.239.0-220.162.239.255
+[DShield block] Unknown:200.31.87.0-200.31.87.255
+[DShield block] 18 Nguyen Du street, Hanoi, Vietnam:203.162.96.0-203.162.96.255
+[DShield block] Universidade Federal de Minas Gerais (NET-UFMG-ANMG):150.164.90.0-150.164.90.255
+[DShield block] CHINANET-JS:58.218.199.0-58.218.199.255
+[DShield block] Unknown:173.226.40.0-173.226.40.255
+[DShield block] CNCGROUP:221.194.46.0-221.194.46.255
+[DShield block] EveryonesInternet,Inc.:67.15.97.0-67.15.97.255

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E004694B-24B3-4BDB-8626-F2614235265B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GPA</RootNamespace>
+    <AssemblyName>GPA v2_1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CCC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CCC.dll</HintPath>
+    </Reference>
+    <Reference Include="CCP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CCP.dll</HintPath>
+    </Reference>
+    <Reference Include="NetUtil, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NetUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.112.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configure_DB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configure_DB.Designer.cs">
+      <DependentUpon>Configure_DB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configure_Ftp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configure_Ftp.Designer.cs">
+      <DependentUpon>Configure_Ftp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configure_Other.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configure_Other.Designer.cs">
+      <DependentUpon>Configure_Other.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configure_Run.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configure_Run.Designer.cs">
+      <DependentUpon>Configure_Run.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configure_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configure_Update.Designer.cs">
+      <DependentUpon>Configure_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Configure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Configure.Designer.cs">
+      <DependentUpon>Form_Configure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GPALib\ADT\BlIpSegmentUnit.cs" />
+    <Compile Include="GPALib\ADT\BlockListUnit.cs" />
+    <Compile Include="GPALib\ADT\ClientVersionUnit.cs" />
+    <Compile Include="GPALib\ADT\CountryRankingUnit.cs" />
+    <Compile Include="GPALib\ADT\DayLightEffectUnit.cs" />
+    <Compile Include="GPALib\ADT\FakePeerUnit.cs" />
+    <Compile Include="GPALib\ADT\OriginalDataUnit.cs" />
+    <Compile Include="GPALib\ADT\OriginalUnitBase.cs" />
+    <Compile Include="GPALib\ADT\IPMapGeoLocationUnit.cs" />
+    <Compile Include="GPALib\ADT\PortRankingUnit.cs" />
+    <Compile Include="GPALib\ADT\ServerRankingUnit.cs" />
+    <Compile Include="GPALib\ADT\SixDegreeUnit.cs" />
+    <Compile Include="GPALib\Algorithm\ImportDataService.cs" />
+    <Compile Include="GPALib\Algorithm\SixDegreeA.cs" />
+    <Compile Include="GPALib\Common\DbBase.cs" />
+    <Compile Include="GPALib\Common\OracleDb.cs" />
+    <Compile Include="GPALib\Common\SqlServerDb.cs" />
+    <Compile Include="GPALib\Common\Xml.cs" />
+    <Compile Include="GPALib\ConfigureInfomation\ConfigureInfo.cs" />
+    <Compile Include="GPALib\ConfigureInfomation\DbConfigure.cs" />
+    <Compile Include="GPALib\ConfigureInfomation\FtpConfigure.cs" />
+    <Compile Include="GPALib\ConfigureInfomation\UpdateConfigure.cs" />
+    <Compile Include="GPALib\Core\DataMonitor.cs" />
+    <Compile Include="GPALib\Core\GlobalDataAnalysis.cs" />
+    <Compile Include="GPALib\Core\OracleImportToSqlServer.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\BlockListData\DbBlockListDataBase.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\BlockListData\DbBlockListForeignBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\BlockListData\DbBlockListForeignEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\BlockListData\DbBlockListInternalBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\BlockListData\DbBlockListInternalEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\ClientVersionData\DbClientVersionRankingDataBase.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\ClientVersionData\DbClientVersionRankingBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\ClientVersionData\DbClientVersionRankingEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\CountryRankingData\DbCountryRankingDataBase.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\CountryRankingData\DbCountryRankingForeignEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\CountryRankingData\DbCountryRankingForeignBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\CountryRankingData\DbCountryRankingInternalBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\CountryRankingData\DbCountryRankingInternalEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\DayLightEffectData\DbDayLightEffectDataBase.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\DayLightEffectData\DbDayLightEffectForeignBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\DayLightEffectData\DbDayLightEffectForeignEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\DayLightEffectData\DbDayLightEffectInternalBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\DayLightEffectData\DbDayLightEffectInternalEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\FakePeerData\DbFakePeerForeignBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\FakePeerData\DbFakePeerForeignEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\FakePeerData\DbFakePeerInternalBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\FakePeerData\DbFakePeerDataBase.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\FakePeerData\DbFakePeerInternalEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\IpPortData\DbIpPortDataBase.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\DbOriginalDataBase.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\IpPortData\DbIpPortForeignEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\IpPortData\DbIpPortInternalEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\IpPortData\DbIpPortForeignBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\IpPortData\DbIpPortInternalBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\PortRankingData\DbPortRankingDataBase.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\PortRankingData\DbPortRankingForeignEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\PortRankingData\DbPortRankingInternalEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\PortRankingData\DbPortRankingForeignBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\PortRankingData\DbPortRankingInternalBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\ServerData\DbServerDataBase.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\ServerData\DbServerForeignEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\ServerData\DbServerInternalEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\ServerData\DbServerForeignBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\ServerData\DbServerInternalBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\SixDegreeData\DbSixDegreeDataBase.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\SixDegreeData\DbSixDegreeForeignBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\SixDegreeData\DbSixDegreeForeignEmuleData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\SixDegreeData\DbSixDegreeInternalBtData.cs" />
+    <Compile Include="GPALib\DatabaseOriginalData\SixDegreeData\DbSixDegreeInternalEmuleData.cs" />
+    <Compile Include="GPALib\LookUpBlockList\LookUpBlockListService.cs" />
+    <Compile Include="GPALib\MainData\BlocklistIPSegmentDist.cs" />
+    <Compile Include="GPALib\MainData\BlockListRankingDist.cs" />
+    <Compile Include="GPALib\MainData\ClientVersionDist.cs" />
+    <Compile Include="GPALib\MainData\CountryRankingDist.cs" />
+    <Compile Include="GPALib\MainData\DayLightEffectDist.cs" />
+    <Compile Include="GPALib\MainData\FakePeerDist.cs" />
+    <Compile Include="GPALib\MainData\IMainDataOperation.cs" />
+    <Compile Include="GPALib\MainData\IPMapGeoLocationDist.cs" />
+    <Compile Include="GPALib\MainData\NetworkSixDegreeDist.cs" />
+    <Compile Include="GPALib\MainData\PortRankingDist.cs" />
+    <Compile Include="GPALib\MainData\ServerRankingDist.cs" />
+    <Compile Include="GPALib\MainData\ResourceSixDegreeDist.cs" />
+    <Compile Include="GPALib\MaxMindGetIpLocation\Country.cs" />
+    <Compile Include="GPALib\MaxMindGetIpLocation\DatabaseInfo.cs" />
+    <Compile Include="GPALib\MaxMindGetIpLocation\Loction.cs" />
+    <Compile Include="GPALib\MaxMindGetIpLocation\LookupService.cs" />
+    <Compile Include="GPALib\MaxMindGetIpLocation\Region.cs" />
+    <Compile Include="GPALib\MaxMindGetIpLocation\RegionName.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configure_DB.resx">
+      <DependentUpon>Configure_DB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configure_Ftp.resx">
+      <DependentUpon>Configure_Ftp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configure_Other.resx">
+      <DependentUpon>Configure_Other.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configure_Run.resx">
+      <DependentUpon>Configure_Run.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configure_Update.resx">
+      <DependentUpon>Configure_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Configure.resx">
+      <DependentUpon>Form_Configure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

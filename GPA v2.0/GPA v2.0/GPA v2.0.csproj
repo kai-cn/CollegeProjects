@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{017C0E56-8BB9-4B09-BD0A-0B0FDF5AC6FE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Global_P2P_Analyzer_v2._0</RootNamespace>
+    <AssemblyName>Global_P2P_Analyzer v2.0</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlockListDBInterface.cs" />
+    <Compile Include="Forms\Configure_DB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configure_DB.Designer.cs">
+      <DependentUpon>Configure_DB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configure_Ftp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configure_Ftp.Designer.cs">
+      <DependentUpon>Configure_Ftp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configure_Other.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configure_Other.Designer.cs">
+      <DependentUpon>Configure_Other.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configure_Run.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configure_Run.Designer.cs">
+      <DependentUpon>Configure_Run.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configure_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configure_Update.Designer.cs">
+      <DependentUpon>Configure_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Configure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Configure.Designer.cs">
+      <DependentUpon>Form_Configure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GPA_ADT\BlockListDist.cs" />
+    <Compile Include="GPA_ADT\ClientVerDist.cs" />
+    <Compile Include="GPA_ADT\ClusCoefDist.cs" />
+    <Compile Include="GPA_ADT\CountryDist.cs" />
+    <Compile Include="GPA_ADT\Data.cs" />
+    <Compile Include="GPA_ADT\FakePeerDist.cs" />
+    <Compile Include="GPA_ADT\GPA_BlockListDist\EmuleBlockListDist.cs" />
+    <Compile Include="GPA_ADT\GPA_BlockListDist\ForeignBtBlockListDist.cs" />
+    <Compile Include="GPA_ADT\GPA_BlockListDist\InternalBtBlockListDist.cs" />
+    <Compile Include="GPA_ADT\GPA_CountryDist\EmuleCountryDist.cs" />
+    <Compile Include="GPA_ADT\GPA_CountryDist\ForeignBtCountryDist.cs" />
+    <Compile Include="GPA_ADT\GPA_CountryDist\InternalBtCountryDist.cs" />
+    <Compile Include="GPA_ADT\GPA_IPDist\EmuleIpDist.cs" />
+    <Compile Include="GPA_ADT\GPA_IPDist\ForeignBtIpDist.cs" />
+    <Compile Include="GPA_ADT\GPA_IPDist\InternalBtIpDist.cs" />
+    <Compile Include="GPA_ADT\GPA_PortDist\EmulePortDist.cs" />
+    <Compile Include="GPA_ADT\GPA_PortDist\ForeignPortDist.cs" />
+    <Compile Include="GPA_ADT\GPA_PortDist\InternalPortDist.cs" />
+    <Compile Include="GPA_ADT\IPDist.cs" />
+    <Compile Include="GPA_ADT\PortDist.cs" />
+    <Compile Include="GPA_ADT\SDofSDist.cs" />
+    <Compile Include="GPA_ADT\TrackerIPDist.cs" />
+    <Compile Include="GPA_Client\Client.cs" />
+    <Compile Include="GPA_Config\DB.cs" />
+    <Compile Include="GPA_Config\XmlConfigure.cs" />
+    <Compile Include="GPA_Ftp\FtpClient.cs" />
+    <Compile Include="GPA_Ftp\FtpLog.cs" />
+    <Compile Include="GPA_MultiThreads\ThreadBlockListDist.cs" />
+    <Compile Include="GPA_MultiThreads\ThreadClusCoefDist.cs" />
+    <Compile Include="GPA_MultiThreads\ThreadCountryDist.cs" />
+    <Compile Include="GPA_MultiThreads\ThreadDist.cs" />
+    <Compile Include="GPA_MultiThreads\ThreadFakePeerDist.cs" />
+    <Compile Include="GPA_MultiThreads\ThreadIPDist.cs" />
+    <Compile Include="GPA_MultiThreads\ThreadPortDist.cs" />
+    <Compile Include="GPA_MultiThreads\ThreadSDofSDist.cs" />
+    <Compile Include="GPA_MultiThreads\ThreadTrackerIPDist.cs" />
+    <Compile Include="GPA_Xml\XmlAnalysis.cs" />
+    <Compile Include="GPA_Xml\XmlBlockListDist.cs" />
+    <Compile Include="GPA_Xml\XmlClusCoefDist.cs" />
+    <Compile Include="GPA_Xml\XmlCountryDist.cs" />
+    <Compile Include="GPA_Xml\XmlFakePeersDist.cs" />
+    <Compile Include="GPA_Xml\XmlIpDist.cs" />
+    <Compile Include="GPA_Xml\XmlNetworkDist.cs" />
+    <Compile Include="GPA_Xml\XmlPortDist.cs" />
+    <Compile Include="GPA_Xml\XmlSDofSDist.cs" />
+    <Compile Include="GPA_Xml\XmlTrackerIPDist.cs" />
+    <Compile Include="Forms\MainFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainFrom.Designer.cs">
+      <DependentUpon>MainFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaxMindGetIpLocation\Country.cs" />
+    <Compile Include="MaxMindGetIpLocation\DatabaseInfo.cs" />
+    <Compile Include="MaxMindGetIpLocation\Loction.cs" />
+    <Compile Include="MaxMindGetIpLocation\LookupService.cs" />
+    <Compile Include="MaxMindGetIpLocation\Region.cs" />
+    <Compile Include="MaxMindGetIpLocation\RegionName.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Configure_DB.resx">
+      <DependentUpon>Configure_DB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configure_Ftp.resx">
+      <DependentUpon>Configure_Ftp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configure_Other.resx">
+      <DependentUpon>Configure_Other.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configure_Run.resx">
+      <DependentUpon>Configure_Run.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configure_Update.resx">
+      <DependentUpon>Configure_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Configure.resx">
+      <DependentUpon>Form_Configure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainFrom.resx">
+      <DependentUpon>MainFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GPA_UpdateDB\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
