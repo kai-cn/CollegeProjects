@@ -1,0 +1,155 @@
+﻿#head div
+{
+	height: 100px;
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid #008FAF;
+}
+
+a {
+	text-decoration: none;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #000;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+a:hover {
+	color: #06F;
+}
+
+a:hover img{
+	border: 2px outset #CCC;
+}
+a img {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+
+#head
+{
+	background:#FFFFFF;
+}
+
+#main {
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}
+#left {
+	float:left;
+	height: 800px;
+	width: 250px;
+	border: 1px solid #008FAF;
+
+}
+#right {
+	width: 640px;
+	float:right;
+	margin-bottom: 10px;
+}
+
+#menu {
+	display: block;
+	height: 30px;
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+	list-style-type: none;
+	padding: 0px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	border: 1px solid #008FAF;
+}
+
+
+#menu li {
+	display: block;
+	list-style-type: none;
+	float: left;
+}
+
+.title {
+	font-family: "微软雅黑";
+	font-size: 28px;
+	display: block;
+	margin-bottom:20px;
+}
+#main #right #introduction {
+	margin-bottom: 20px;
+	border: 1px solid #008FAF;
+}
+#main #right #achievement {
+	border: 1px solid #008FAF;
+}
+
+
+#main #right #achievement p {
+	text-indent: 2em;
+}
+
+#main #right #introduction p {
+	text-indent: 2em;
+}
+#main #right #achievement img {
+	float: right;
+}
+#main #right #achievement #chart {
+	width: 600px;
+	height: 300px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+#main #right #achievement #chart div {
+	width: 295px;
+	float: left;
+}
+
+
+#main #right #achievement #map {
+	width: 600px;
+	height: 300px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+#main #right #achievement #map div {
+	width: 295px;
+	float: left;
+}
+#head div span {
+	font-family: "微软雅黑";
+	font-size: 30px;
+}
+
+
+
+body {
+	padding: 0px;
+	margin: 0px;
+	background-color: #FDFDFD;
+}
+div {
+	background-color: #FFFFFF;
+}
+
+#foot {
+	height: 100px;
+	width: 900px;
+	border: 1px solid #008FAF;
+	text-align: center;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	clear: both;
+}

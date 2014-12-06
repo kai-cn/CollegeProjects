@@ -1,0 +1,65 @@
+#dataAnalysisMain {
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #D6D6D6;
+	height: 700px;
+}
+#dataAnalysisMain #choice #name {
+	font-family: "微软雅黑", "黑体";
+	font-size: 18px;
+	text-align: center;
+	width: 100%;
+	margin-bottom: 20px;
+}
+#form1 #dataAnalysisMain #choice hr {
+	border-top-color: #09C;
+	border-right-color: #09C;
+	border-bottom-color: #09C;
+	border-left-color: #09C;
+	border-top-width: 1px;
+	margin-right: 10px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+}
+
+
+#dataAnalysisMain #choice {
+	float: left;
+	height: 700px;
+	width: 299px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #999;
+}
+#dataAnalysisMain #choice #time #timeContent {
+	height: 100px;
+	width: 240px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#dataAnalysisMain #choice span {
+	font-family: "微软雅黑", "黑体";
+	display: block;
+	width: 100%;
+}
+#form1 #dataAnalysisMain #choice #time div .ddl {
+	float: left;
+	width: 70px;
+	margin-right: 15px;
+}
+
+#dataAnalysisMain #choice #item div {
+}
+
+
+#dataAnalysisMain #content {
+	float: right;
+	height: 700px;
+	width: 600px;
+	overflow: scroll;
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:v="urn:schemas-microsoft-com:vml">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+	<title>Example</title>
+	<script src = "http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAWUEMibA7GorHPKmAZWcHFBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRFzgorXnQQhLdlotDOQa-cWTtv6w"
+	
+	type="text/javascript"></script>
+	
+	
+	<script type="text/javascript">
+	
+	//<![CDATA[
+	
+	
+	
+	
+	
+	GMarker.prototype.setIndex = function(index)
+	{
+		this.index = index;
+	}
+
+	
+	
+	var map;			
+	var polyline;	
+	
+	var markers= [];
+	
+	var myIcon = new GIcon(G_DEFAULT_ICON,"http://www.google.com/mapfiles/marker.png");
+	
+	
+	
+	
+	
+	
+	
+	
+	//创建地标
+	function createMarker(point)
+	{
+		var marker = new GMarker(point,{icon:myIcon, draggable:true , bouncy:true});
+		var index = markers.length;
+		
+	
+		//双击地标删除该地标
+		GEvent.addListener(marker,'dblclick',function()
+		{
+			deleteMarker(marker);
+		})	;
+		
+		//dragstart事件，换新图标
+		GEvent.addListener(marker,'dragstart',function()
+		{
+			marker.setImage("http://www.google.com/mapfiles/dd-start.png");
+		})	;
+		
+		//dragend事件，换回原图标
+		GEvent.addListener(marker,'dragend',function()
+		{
+			marker.setImage("http://www.google.com/mapfiles/marker.png");
+		})	;
+		
+		
+		//单击显示行程安排
+		GEvent.addListener(marker,'click',function()
+		{
+			marker.openInfoWindowHtml("经度："+point.lng()+"  纬度："+point.lat(),{
+																maxTitle:'<span style="color:red">坐标</span>',
+																maxContent:'<span style="color:green">经度：</span>'+point.lng()+'<span style="color:green">  纬度：</span>'+point.lat()
+																
+															});
+		})	;
+		
+		//drag事件
+		GEvent.addListener(marker,'drag',function()
+		{
+			redrawPolyline();
+		});
+		
+		marker.setIndex(index);
+		markers[index] = marker;
+		map.addOverlay(marker);
+		
+		//每创建一个新地标就重画一次
+		
+		redrawPolyline();
+	
+	}
+	
+	//双击地标删除之
+	function deleteMarker(marker)
+	{
+		if(!confirm("确定删除该地标吗？"))
+			return;
+			
+		var index = marker.index;
+		map.removeOverlay(marker);
+		
+		//数组删除指定marker，并更新index
+		for(var i=index;i<markers.length-1;i++)
+		{
+			markers[i+1].setIndex(i);
+			markers[i]=markers[i+1];
+		}
+		markers.length = markers.length-1;
+		
+		redrawPolyline();
+	}
+	
+		
+		
+	
+	
+	//初始化
+	function load()
+	{
+		if(GBrowserIsCompatible())
+		{
+			map = new GMap2(document.getElementById("map"));
+			
+			map.addControl(new GLargeMapControl());
+			map.addControl(new GMapTypeControl());
+			map.addControl(new GScaleControl());
+			
+			
+			map.enableGoogleBar();
+			map.enableScrollWheelZoom();
+			var kh = new GKeyboardHandler(map);
+			
+			var centerPoint= new GLatLng(31.86,120.55); 
+			map.setCenter(centerPoint,11);
+			
+			GEvent.addListener(map,'click',function(overlay,point)
+			{
+				if(point)
+					createMarker(point);
+			});
+			
+		}
+	}
+	
+
+	
+	//添加行程路线
+	function addPolyline()
+	{
+		//创建
+		var points = [];
+		for(var i=0;i<markers.length;i++)
+		{
+			points[i] = markers[i].getPoint();
+		}
+		
+		polyline = new GPolyline(points,"#FF0000",10,0.5);
+		map.addOverlay(polyline);
+	}
+	
+	//删除行程路线
+	function removePolyline()
+	{
+		polyline.remove();
+		polyline = null;
+	}
+	
+	//重画行程路线
+	function redrawPolyline()
+	{
+		if(polyline)
+		{
+			removePolyline();
+		}
+		addPolyline();
+	}
+	
+	
+	function getDistance2(from,to,unit)
+	{
+		var R = 6378.137;
+		
+		var M= 1.609344;
+		
+		with(Math)
+		{
+			var lat1 = from.latRadians();
+			var lng1 = from.lngRadians();
+			var lat2 = to.latRadians();
+			var lng2 = to.lngRadians();
+			
+			var dist = 2*asin(sqrt(pow((sin((lat1-lat2)/2)),2)+cos(lat1)*cos(lat2)*pow((sin((lng1-lng2)/2)),2)))*R;
+		}
+		
+		if(unit =="M")
+		{
+			dist = dist/M;
+		}
+		return dist;
+	}
+	
+	function getDistance()
+	{
+		var dist = 0;
+		var count = polyline.getVertexCount();
+		
+		for(var i=0; i<count-1;i++)
+		{
+			dist +=getDistance2(polyline.getVertex(i),polyline.getVertex(i+1));
+		}
+		return dist;
+	}
+	
+	function deleteAllmarkers()
+	{
+		for(var i=0;i<markers.length;i++)
+		{
+			map.removeOverlay(markers[i]);
+		}
+		markers.length = 0;
+		
+		redrawPolyline();
+	}
+	
+	function moveMap()
+	{
+		map.setCenter(new GLatLng(31.86,120.55),11);
+	}
+	
+
+	
+	//]]>
+	</script>
+	
+	
+</head>
+
+<body onload = "load()" onunload="GUnload()">
+
+	
+	
+	<input type="button" value="折线长度" onclick="alert(getDistance()+'km')" />
+	<input type="button" value="清空地标" onclick="deleteAllmarkers()" />
+	<input type="button" value="返回中心" onclick="moveMap()" />
+	
+	
+	<div id="map" style="width:800px;height:500px"></div>
+</body>
+</html>

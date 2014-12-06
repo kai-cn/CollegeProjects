@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:v="urn:schemas-microsoft-com:vml">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+	<title>Example</title>
+	<script src = "http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAWUEMibA7GorHPKmAZWcHFBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRFzgorXnQQhLdlotDOQa-cWTtv6w"
+	
+	type="text/javascript"></script>
+	
+	
+	<script type="text/javascript" >
+	
+	var map;
+
+function load()
+{
+    if(GBrowserIsCompatible()){
+        map=new GMap2(document.getElementById("map"));
+        map.setCenter(new GLatLng(43.89391,125.32214),6);	
+        map.addControl(new GLargeMapControl());
+        map.addControl(new GMapTypeControl());
+        map.addControl(new GScaleControl());
+        LoadXml();
+      //  GDownloadUrl("KML_BT_Internal.xml",function(data,responseCode){
+      //  var xml=GXml.parse(data);
+        
+      //  });
+    
+    
+    }
+
+}
+
+
+function LoadXml()
+{
+    var request=GXmlHttp.create();
+    
+    request.open("GET","http://hz.ftn.qq.com/ftn_handler/9c629ec4ee1144d209e412d72b1a8de6d7e1b439abee1e852ee0dc78edb56b3025d9b642b6d7b5c404fcb3d873acf648c5e421c5dee3f35e9b4638be3264c702/ex.xml",true);
+    request.onreadystatechange=function(){
+        if(request.readyState==4){
+            var xmlDoc=request.responseXML;
+            var PerPos=xmlDoc.documentElement.childNodes;
+            //取得XML文件中礚NG和LAT的节点值
+            
+            for(var i=0;i<PerPos.length;i++){
+                var lnglat=PerPos[i].getElementsByTagName("coordinates")[0].text;
+                var l=lnglat.split(',',2);
+                
+                var latlngObj=new GLatLng(l[0],l[1]);
+                map.addOverlay(new GMarker(latlngObj));
+            }
+        }
+    }
+    request.send(null);
+}
+	
+	
+	</script>
+	
+	
+</head>
+
+<body onload = "load()" onunload="GUnload()">
+	
+
+
+
+
+
+	<div id="map" style="width:700px;height:550px"></div>
+	
+	
+</body>
+</html>

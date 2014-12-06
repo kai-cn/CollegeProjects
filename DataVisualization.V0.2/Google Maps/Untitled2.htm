@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/ DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/> 
+    <title>Google JavaScript API</title> 
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key= …… " 
+            type="text/javascript"></script> 
+    <script type="text/javascript"> 
+      
+      var map;  
+         //创建地图并初始化  
+         function setupMap() {  
+           if (GBrowserIsCompatible()) {  
+            map = new GMap2(document.getElementById("map1"));  
+             map.addControl(new GLargeMapControl());  
+             map.setCenter(new GLatLng(43.92, -71.385), 10);  
+           }  
+         }  
+           
+         function gxmlfun()  
+         {  
+             //创建XMLhttp对象  
+             var request = GXmlHttp.create();  
+             //request对象获取Tablenew.xml文件  
+             request.open("GET", "http://hz.ftn.qq.com/ftn_handler/9c629ec4ee1144d209e412d72b1a8de6d7e1b439abee1e852ee0dc78edb56b3025d9b642b6d7b5c404fcb3d873acf648c5e421c5dee3f35e9b4638be3264c702/ex.xml", true);  
+            request.onreadystatechange = function() {  
+                 if (request.readyState == 4) {  
+                     var xmlDoc = request.responseXML;  
+                     var PerPos = xmlDoc.documentElement.childNodes;  
+                     //取得XML文件中lng和lat的节点值  
+                     for (var i = 0; i < PerPos.length; i++) {  
+                     var lng = PerPos[i].getElementsByTagName("lng")[0].text;  
+                     var lat = PerPos[i].getElementsByTagName("lat")[0].text;  
+                     var latlngObj = new GLatLng(lat,lng);  
+                     map.addOverlay(new GMarker(latlngObj));  
+                     }   
+                 }  
+             }  
+             request.send(null);  
+         }  
+    </script> 
+  </head> 
+  <body onload="javascript:setupMap();" > 
+  <div id="map1" style="width: 500px; height: 300px"></div> 
+  <input id="btn" type="button" value="添加标记" onClick="javascript:gxmlfun();"> 
+   </body> 
+</html>

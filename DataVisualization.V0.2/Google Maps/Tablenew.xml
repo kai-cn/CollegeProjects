@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot>
+    <Table>
+        <id>1</id>
+        <lng>-71.385</lng>
+        <lat>43.92</lat>
+        <MarkId>1</MarkId>
+    </Table>
+    <Table>
+        <id>2</id>
+        <lng>-71.386</lng>
+        <lat>43.921</lat>
+        <MarkId>2</MarkId>
+    </Table>
+    <Table>
+        <id>3</id>
+        <lng>-71.387</lng>
+        <lat>43.922</lat>
+        <MarkId>3</MarkId>
+    </Table>
+    <Table>
+        <id>4</id>
+        <lng>-71.388</lng>
+        <lat>43.923</lat>
+        <MarkId>4</MarkId>
+    </Table>
+</dataroot>
